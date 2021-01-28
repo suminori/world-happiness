@@ -1,0 +1,145 @@
+<html> 
+<head>
+    <meta charset="utf-8">
+    <title>World Happiness Report</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="map-holder"></div>
+    <div id="cover-content">
+        <div id="heading-text">
+            <img src="images/world happiness report logo-01.svg" width=360 height=196>
+        </div>
+        <p id="instructions">Hover over a country to see its happiness rank <br>and population data!<br> <br>Data sourced from <a href="https://worldhappiness.report">The World Happiness Report</a></p>
+        <div id="key">
+            <img src="images/world happiness report key-02.svg" width=515 height=107>
+        </div>
+    </div>
+    <div id="intro">
+        <h1 id="intro-heading">Are you happy with where you live?</h1>
+        <div id="intro-content">
+            <img src="images/abhas-mishra-W-N5Fi7xyTk-unsplash (4).jpg" width=60%, height=60%>
+            <div id="column">
+                <p id="intro-text">The World Happiness Report is a landmark survey of the state of global happiness that ranks 156 countries by how happy their citizens perceive themselves to be. The World Happiness Report 2020 ranks cities around the world by their subjective well-being and digs more deeply into how the social, urban and natural environments combine to affect our happiness.</p>
+                <a href="https://worldhappiness.report" class="button button1">Learn more</a>
+            </div>
+        </div>
+    </div>
+    <div class="overview">
+        <h3 id="overview-heading">Why I chose this data</h2>
+        <p class="overview-text">As a daughter to two fearless, hard-working immigrant parents, I am no stranger to the concept of relocating to another country in search of happiness and better opportunities than the ones you were born with. Now, as an upcoming graduate with the rest of my life ahead of me, I'm often pondering the question of what it means to be happy; and more specifically, what it means to be happy with the place you call home. When I came across this dataset, I was interested in seeing how the relative levels of happiness were determined, and how the two places where I have roots compare to each other in this regard.</p>
+    </div>
+    <div class="overview">
+        <h3 id="overview-heading">About the dataset</h2>
+        <p class="overview-text">Although the annual World Happiness Report is based on a wide variety of data, the most important source is the Gallup World Poll, an organization that collects data on global issues through telephone and face-to-face surveys of citizens. The Happiness Rankings are calculated based on a number of factors, which includes objective information like GDP per capita and life expectancy, as well as subjective binary responses to survey questions. For the purposes of this exploration, I decided to focus on the six subjective factors included in the report.</p>
+    </div>
+    <div id="factors-grid">
+        <div class="factor">
+            <h4>Freedom to Make Life Choices</h4>
+            <p>The national average of binary (0 or 1) responses to the GWP question "Are you satisfied or dissatisfied with your freedom to choose what you do with your life?"</p>
+        </div>
+        <div class="factor">
+            <h4>Perceptions of Corruption</h4>
+            <p>The national average of binary responses to: "Is corruption widespread throughout the government or not" and "Is corruption widespread within businesses or not?"</p>
+        </div>
+        <div class="factor">
+            <h4>Social Support</h4>
+            <p>The national average of binary responses to the GWP question "If you were in trouble, do you have relatives or friends you can count on to help you whenever you need them, or not?"</p>
+        </div>
+        <div class="factor">
+            <h4>Generosity</h4>
+            <p>The residual of regressing national average of response to the GWP question "Have you donated money to a charity in the past month?" on GDP per capita.</p>
+        </div>
+        <div class="factor">
+            <h4>Positive Affect</h4>
+            <p>The national average of binary responses to questions of whether a respondent had felt happiness, laughter, and/or enjoyment during "a lot of" the previous day.</p>
+        </div>
+        <div class="factor">
+            <h4>Negative Affect</h4>
+            <p>The national average of binary responses to questions of whether a respondent had felt worry, sadness, and/or anger during "a lot of" the previous day.</p>
+        </div>
+    </div>
+    <div id="section-line"></div>
+    <div class="overview">
+        <h3 id="overview-heading">Exploring relationships between the factors</h2>
+        <p class="overview-text">I used a scatter plot to explore some of the relationships between the factors that were used to determine the overall rankings, as well as to visualize any patterns that may exist for different regions around the world. The points are colored by region, and sized based on population size.</p>
+        <p><i>Hover over each point to see more information.</i></p>
+    </div>
+    <div id = "container">
+        <div id="scatter-plot"></div>
+        <div id="options">
+            <h4>Filter by region</h4>
+            <p class="input">
+                <input type="checkbox" id="c1" value="Western Europe" checked>
+                <label for="c1" class="type--option">Western Europe</label>
+            </p>
+            <p class="input">
+                <input type="checkbox" id="c2" value="North America and ANZ" checked>
+                <label for="c2" class="type--option">North America and ANZ</label>
+            </p>
+            <p class="input">
+                <input type="checkbox" id="c3" value="Middle East and North Africa" checked>
+                <label for="c3" class="type--option">Middle East and North Africa</label>
+            </p>
+            <p class="input">
+                <input type="checkbox" id="c4" value="Latin America and Caribbean" checked>
+                <label for="c4" class="type--option">Latin America and Caribbean</label>
+            </p>
+            <p class="input">
+                <input type="checkbox" id="c5" value="Central and Eastern Europe" checked>
+                <label for="c5" class="type--option">Central and Eastern Europe</label>
+            </p>
+            <p class="input">
+                <input type="checkbox" id="c6" value="East Asia" checked>
+                <label for="c6" class="type--option">East Asia</label>
+            </p>
+            <p class="input">
+                <input type="checkbox" id="c7" value="South Asia" checked>
+                <label for="c7" class="type--option">South Asia</label>
+            </p>
+            <p class="input">
+                <input type="checkbox" id="c8" value="Southeast Asia" checked>
+                <label for="c8" class="type--option">Southeast Asia</label>
+            </p>
+            <p class="input">
+                <input type="checkbox" id="c9" value="Sub-Saharan Africa" checked>
+                <label for="c9" class="type--option">Sub-Saharan Africa</label>
+            </p>
+            <p class="input">
+                <input type="checkbox" id="c10" value="Commonwealth of Independent States" checked>
+                <label for="c10" class="type--option">Independent States</label>
+            </p>
+        </div>
+    </div>
+    <p id="button-context">Use these buttons to explore other factors:</p>
+    <div id="join-buttons">
+        <button id="corruption" class="data-join">Corruption</button>
+        <button id="social" class="data-join">Social Support</button>
+        <button id="generosity" class="data-join">Generosity</button>
+    </div>
+    <div id="section-line"></div>
+    <div class="overview">
+        <h3 id="overview-heading">Comparing US and Korea</h2>
+        <p class="overview-text">In order to take a closer look at the two countries that are most important to me, I created this radar chart to compare their values for each of the different factors.</p>
+    </div>
+    <div id="radar-container">
+        <div id="radar-chart"></div>
+        <img id="radar-key" src="images/radar key-01.svg" width=190 height=110>
+    </div>
+    <div id="section-line"></div>
+    <div class="overview">
+        <h3 id="overview-heading">Takeaways</h2>
+        <ul>
+            <li>The scatter plot was helpful in visualizing the landscape of data included in the report. From it, it is apparent that the happiest countries all seem to have high levels of individual freedom and social support, and higer trust in the integrity of their institutions.</li>
+            <li>From my comparison of my two home countries, it seems that in all the selected factors, the US wins out over Korea. However, as these values are derived from subjective responses, the results have only made me more curious as to why citizens of each country feel the way that they do, and what other factors may be directly related to these sentiments (quality of education, access to information, cultural values, etc).</li>
+        </ul>
+    </div>
+    <div id="footer">
+        <p>Design and Content by <b>Sumin Lim</b></p>
+    </div>
+    <script src="./map.js"></script>
+    <script src="./scatter.js"></script>
+    <script src="./radar.js"></script>
+</body>
+</html>
